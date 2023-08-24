@@ -1,0 +1,169 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~GUIDE, INSTRUCTIONS, AND MORE!!~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+This is a written summary of the guide video. PLEASE WATCH THE GUIDE VIDEO TO UNDERSTAND HOW TO NAVIGATE
+WORKING WITH THE WEBSITE REGARDLESS OF YOUR EXPERIENCE WITH HTML, CSS, AND PYSCRIPT (python but a little different)!!
+
+______________________________________________FILE NAMES______________________________________________
+
+1. First rule of thumb, DO NOT CHANGE ANY FILE NAMES!! File names are important for linking all the elements 
+together and changing any name, even by one space or one capitalization will unlink the files. 
+Currently the file names are this:
+
+index.html (Main file and the first page of the all the files)
+CO2result.html (second page)
+look.css (the page that makes everything look nice)
+bedrock.png
+pioneer.png
+inter.png
+cc.png
+logo.png (eco rep logo you see on the first page)
+possible.png  (this is the background)
+wateringcan.gif
+
+If you were to add a page, or other elements, I would highly recommend having a CS person who knows 
+HTML, CSS, AND PYSCRIPT (basically python but different) help you add it in (requires different linking based on what 
+kind of page it is).
+
+DO NOT CHANGE EXISTING VARIABLE NAMES!! This will cause some issues because these variable names are used 
+in different places of the code and sometimes between linked pages. 
+
+DO NOT CHANGE IDS AND NAMES! THIS IS THE "id=" or "name=" things! ANYTHING WITHIN THOSE CARROTS SHOULD STAY THE SAME. 
+Usually, questions and answers appear as normal text (not glowing blue), which are easy to change without consequences, 
+however, ids and names create sets and link back to python code. 
+
+Good rules of thumb:
+If you don't know what it does, please don't change it's name, even if nothing seems to happen.
+
+______________________________________________HTML SECTIONS______________________________________________
+
+
+1. The main parts where you see writing, the form itself, and anything on the results page that pops up has to do with html. 
+Html is literally the fore-front of the website; it is what you and anyone else can see happen on the site. 
+
+index.html:
+
+The html for this one is pretty simple. In the body section of our form (from <body> to </body>), you'll see the heading, 
+and then the form section. The form section contains the questions themselves and then the choices. Try not to change the values,
+but if you need to change the wording, you should be able to do so by just changing the part where you see the exact text
+for the questions/answers that also appears on the visible website (should not be blue or glowing in the code). 
+
+CO2result.html:
+
+The html for this page is slightly complicated, not because it is, in fact, hard to understand, but because it's formatted 
+weirdly. There are a lot of fill in the blank spaces which relies on the python code to calculate the results and input 
+the user's calculations automatically into the sentence that appears on the result page. To navigate this, you will have to 
+watch the video as it will help navigate the different spaces and what they do. 
+
+
+______________________________________________PYSCRIPT SECTIONS______________________________________________
+
+2. Apparently, python and pyscript are a bit different. Some things in python that work like the img.show()
+code doesn't work here with pyscript. I currently don't have much information as to the relationship 
+between html and pyscript and so, can't officially comment on why or how they differ exactly. I have found this out 
+mainly through A LOT of trial and error. 
+
+index.html:
+
+The code on index.html is code that first checks each set of question with answers for which one is checked, hence 
+the section id and the .checked in that code. It places that value into the variable on the left side of the equal sign 
+(which is only a name).As u can see above, each set of questions has answers and each answer has their own unique id. 
+The value that it places inside the variable is actually the unique id of the answer that was checked. 
+
+Next, we basically add to the environmental total based on whether or not certain questions were checked. 
+For example, we have to see if the answer id of the question that talks about lights is "on", which is the answer that 
+tells us that the user (person taking quiz) turns the lights on. It means they initially had the lights closed and 
+therefore, the savings associated with that can be added to our env variable.
+
+We don't check for anything that has 0 savings, because that's unnecessary code since it does nothing but add
+0 to our total.
+
+After we've created a checking system that adds savings based on whether the checked answer was the same as the 
+savings related ones, we store the final variable that has the total amount of savings into local storage because 
+CO2result.html(our results page) does not have proper access to any calculations we've made on the first page.
+
+
+CO2result.html:
+
+As you can see, we have multiple places for output where we are hoping to output different things to each. To even access 
+those places where the values we want will be outputted, we have to first get their "value" and store it in a variable.
+Next, I'm taking out the env value we stored in our local storage and putting the value in post. Sometimes, we get long 
+repeating numbers because of python which ruins the formatting of the page, so I convert post to a float (post is a string 
+(which is like writing abc) and making it a float makes it a number). After it is converted to a number, I shorten the 
+amount of decimals it puts to the result page to 3. 
+I then post our shortened env value to the results page, specifically where output's place is in the html code above. 
+
+Next, I have four variables that are equal to the description that we want for the respective sections. These descriptions 
+have to be in quotation marks!!! 
+We can only post one description at a time because they pertain to the different ranges of the scoring system, which we 
+check in the next chunk of code.
+
+The scoring guide is bound to change of course and so, I will say this based on the ranges I know right now: 
+
+if the numerical version of our retrieved env value is less than 100, then we want to post the word "first" to output2 
+(in between the result sentence), and the word "Bedrock" to output3 (also part of the result sentence). output2 and output3 
+are the ids of specific places within the results page sentence. Since we don't know the score ourselves and the score 
+changes from user to user based on choices they make, we can't anticipate what they will choose and so, we have to fill 
+in the gaps based on their score.
+
+if the numerical version of our retrieved env value is less than 200, then we want to post the word "second" to output2 
+(in between the result sentence), and the word "Pioneer" to output3 (also part of the result sentence). We don't need 
+to check if it is greater than 100 because if the value was less than 100, it would've only done the first set of "pastes". 
+It would only ever come to this check BECAUSE it didn't meet the first condition.
+
+if the numerical version of our retrieved env value is less than 300, then we want to post the word "third" to output2 
+(in between the result sentence), and the word "Intermediate" to output3 (also part of the result sentence). 
+if the numerical version of our retrieved env value is less than 400, then we want to post the word "fourth" to output2 
+(in between the result sentence), and the word "Climax Community" to output3 (also part of the result sentence). 
+
+
+NOTE FOR CS KNOWING PERSON SPECIFICALLY WHO MAY BE HELPING: If you are a python wizard (or know python at any level), 
+you may understand pyscript better than I have, however, unless you are fully aware of a better AND FUNCTIONAL 
+piece of code that could replace mine, try not to replace my code. Some normal python functions don't work well with html, 
+so you would have to really look into how you can present it using py-script, which I learned the hard way. If you do, 
+in fact, know a better AND FUNCTIONAL piece of code that could replace mine and it works, by all means lol ;) 
+Also understand that the purpose of the code is not to show what you know about python, it's to provide an accesible 
+tool for eco-reps who may not know code to use. Don't fill it with comments, just make a video explaining thoroughly (add 
+onto this if you would like). Keep the code itself simple and the entire document clean and easy to navigate.
+
+
+______________________________________________GITHUB LINKS______________________________________________
+
+Github may seem daunting at first, a land of code and aesthetics that make you feel like you are a hacker of some sorts, 
+but it's really chill. I am not an expert at Github, so I won't be able to teach you all the ways to use it. But in the 
+context of this site, I can show you some tools.
+
+The files for this site are in a repository (which is basically a folder that the public, a few people, or just u can 
+access).
+
+I have made this repository private, which can be changed in the settings when u click on this repository. This hides the 
+code from the public, but should not affect the website link at all. 
+
+The code can only be accessed if you have the information (username and password) for the eco-rep account, or if you are 
+added as a collaborator onto this repository, which the owner of the eco-rep account has to do. You need a github account 
+to be added as a collaborator.
+To edit this code as a collaborator, you can click fork (which creates a copy of the code in the repository), edit the code that 
+u have forked, and then commit the changes. I will show it in the video because it can be confusing. 
+
+The website is already published, but in the off chance you need to redo everything, create a repository with the name 
+
+replaceexactlywiththeaccountusername.github.io  
+
+Make sure it is initially public!!
+
+Add all the website's files into this repository. Go to settings. Look at the sidebar. Go to pages. Under Branch, change None
+to main and click Save. In a few moments, the website should pop up with the link:
+
+replaceexactlywiththeaccountusername.github.io  
+
+If you no longer want this site :'( : 
+
+First unpublish the website -
+https://docs.github.com/en/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site
+Second Delete it -
+https://docs.github.com/en/pages/getting-started-with-github-pages/deleting-a-github-pages-site
+Third -
+Delete the repository by going into settings, general, scroll to bottom, delete repository.
+
+
+
+

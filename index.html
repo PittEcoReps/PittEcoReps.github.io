@@ -1,0 +1,177 @@
+<html>
+
+<head>
+<link href="look.css" rel="stylesheet" type="text/css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+<meta charset="UTF-8">
+
+</head>
+
+<py-env>
+      - numpy
+      - matplotlib
+</py-env>
+
+<body>
+
+<div class="header">
+</div>
+
+<img src="logo.png" width="120" height="100">
+
+<h1 style="padding-top: 30px; text-align: center;">A Quick Story Time!</h1>
+
+<form action="CO2result.html" method="GET">
+
+  <h4>You come home from a long day of lectures and are exhausted. You decide to go back to your dorm
+  to relax. You . . . </h4>
+
+  <input type="radio" id="on" name="lights" required>
+  <label for="on"> . . . turn the lights on.</label>
+
+  <input type="radio" id="no" name="lights" >
+  <label for="no">. . . continue walking since they were already on.</label><br>
+
+<br><br>
+
+  <h4>You are about to hop on the bed when you realize you should take a shower first. You take a shower for . . .</h4>
+  
+  <input type="radio" id="ten" name="shower" required>
+  <label for="ten"> . . . less than 10 minutes.</label><br>
+
+  <input type="radio" id="twenty" name="shower">
+  <label for="twenty">. . . more than 20 minutes.</label><br>
+
+  <input type="radio" id="nope" name="shower">
+  <label for="nope">. . . nevermind, you don't feel like showering.</label><br>
+
+<br><br>
+  
+  <h4>Regardless, you do have to change clothes and as you open your closet, you realize all your clothes are dirty. You debate whether to wash your clothes or not.</h4>
+
+  <input type="radio" id="wait" name="wash" required>
+  <label for="wait">You choose to wait until there is a full load.</label><br>
+
+  <input type="radio" id="go" name="wash">
+  <label for="go">You wash them regardless of whether there is a full load or not.</label><br>
+
+
+<br><br>
+
+  <h4>You decide to wash your clothes right now. If you didn't choose that take this as a hypothetical scenario that you would imagine for fun (idk why you would do that).
+  What setting do you wash your clothes at?</h4>
+
+  <input type="radio" id="cold" name="temp" required>
+  <label for="cold">Cold Water</label><br>
+
+  <input type="radio" id="warm" name="temp">
+  <label for="warm">Warm Water</label><br>
+
+  <input type="radio" id="hot" name="temp">
+  <label for="hot">Hot Water</label><br>
+
+<br><br>
+
+  <h4>After washing your clothes or imagining washing them, you feel really hungry since you haven't eaten since 8 am (you're clearly a freshman for taking an 8 am class). To get
+  to your desired place of food, you . . .</h4>
+
+  <input type="radio" id="walk" name="tsnpt" required>
+  <label for="walk">. . .walk to the place since it's pretty close by.</label><br>
+
+  <input type="radio" id="bus" name="tsnpt">
+  <label for="bus">. . .take a bus since it's a bit off campus.</label><br>
+
+  <input type="radio" id="car" name="tsnpt">
+  <label for="car">. . .take your car since it's a bit off campus.</label><br>
+
+<br><br>
+
+  <h4>After getting food, you realize it's getting pretty late and you should sleep now so that you can wake up for your other 8am the next day. Of course you have to make
+  sure your phone has battery. You . . .</h4>
+
+  <input type="radio" id="psm" name="phone" required>
+  <label for="psm">. . . turn on power saving mode on your phone and put it on your bedside table.</label><br>
+
+  <input type="radio" id="nuh" name="phone">
+  <label for="nuh">. . . simply put your phone on your bedside table.</label><br>
+
+<br><br>
+
+  <h4>Before you fall asleep, you decide to check Instagram one last time (you will likely spend an hour mindlessly scrolling and regret sleeping late in the morning).
+  Are you following @PittEcoReps on Instagram? </h4>
+
+  <input type="radio" id="yup" name="follow" required>
+  <label for="yup">I do because sustainability is actually cool, you know.</label><br>
+
+  <input type="radio" id="yet" name="follow">
+  <label for="yet">I don't yet, but I will because I want to be cool.</label><br>
+
+<br><br><br>
+
+  <button id="button" type="submit" pys-onClick="getandpost">Calculate</button>
+</form> 
+
+
+<py-script>
+
+import string
+import js
+import numpy as np
+
+def getandpost(*args,**kwargs):
+
+  env = 0
+
+  lighting = document.querySelector("[name='lights']:checked").id
+  showering = document.querySelector("[name='shower']:checked").id
+  washing = document.querySelector("[name='wash']:checked").id
+  temperature = document.querySelector("[name='temp']:checked").id
+  transportation = document.querySelector("[name='tsnpt']:checked").id
+  charge = document.querySelector("[name='phone']:checked").id
+  following = document.querySelector("[name='follow']:checked").id
+  
+  if lighting == "on":
+    env = env + 110.07
+  
+  if showering == "ten":
+    env = env + 7.44
+    
+  if washing == "wait":
+    env = env + 9.81
+  elif washing == "go":
+    env = env + 4.9
+
+  if temperature == "cold":
+    env = env + 9.81
+  elif temperature == "hot":
+    env = env - 9.81
+
+  if transportation == "walk":
+    env = env + 216
+  elif transportation == "bus":
+    env = env + 125.55
+    
+  if charge == "psm":
+    env = env + 21.2
+    
+  if following == "yup":
+    env = env + 5
+  
+  js.localStorage.setItem("env",env)
+
+</py-script>
+
+<br><br>
+<div class="note" style="text-align: center;font-size:12px;">
+Design Attributions: <br>
+<a style="color:#b7e3a1;"href="https://www.flaticon.com/free-stickers/polar-bear" title="polar bear stickers">Polar bear stickers created by Surfsup.Vector - Flaticon</a> <br>
+<a style="color:#b7e3a1;"href="https://www.flaticon.com/free-stickers/laundry" title="laundry stickers">Laundry stickers created by Gohsantosadrive - Flaticon</a> <br>
+<a style="color:#b7e3a1;"href="https://www.flaticon.com/free-icons/light-switch" title="light switch icons">Light switch icons created by Ehtisham Abid - Flaticon</a> <br>
+<a style="color:#b7e3a1;"href="https://www.flaticon.com/free-icons/ecology-and-environment" title="ecology and environment icons">Ecology and environment icons created by Ehtisham Abid - Flaticon</a> <br>
+<a style="color:#b7e3a1;"href="https://www.flaticon.com/free-icons/charge" title="charge icons">Charge icons created by Smashicons - Flaticon</a> <br>
+<a style="color:#b7e3a1;"href="https://giphy.com/megantje" title="watering can gif">Watering Can gif created by Megan McNulty - GIPHY</a>
+</div>
+<br><br><br>
+
+</body>
+</html>

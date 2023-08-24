@@ -1,0 +1,119 @@
+<html>
+
+<head>
+<link href="look.css" rel="stylesheet" type="text/css" />
+<script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+
+<py-env>
+      - numpy
+      - matplotlib
+</py-env>
+
+<body>
+
+<div class="topnav">
+  <a href="index.html">Calculate</a>
+</div>
+
+<br>
+
+<h1 style="padding-top: 40px; text-align: center;">How Sustainable Are You?</h1>
+
+<div class="description">
+
+<div class="note">
+<p style="display:inline">&hearts;</p> Please wait a moment for your results to display! <p style="display:inline">&hearts;</p>
+</div>
+<br><br>
+
+Congratulations you saved <h4 style="display:inline" id = "output" ></h4> Kg this semester! This puts you in the <h4 style="display:inline" id = "output2" ></h4> stage of Succession, <h4 style="display:inline" id = "output3" ></h4>! 
+
+<br><br>
+
+<img id="jif" src="wateringcan.gif" width="200" height="200" style = "position:absolute; left:800px; top:450px" >
+
+<br><br>
+
+<img id="ig" src= "" width="650" height="475">  
+
+<br><br><br>
+             
+<span id = "output4" ></span> 
+
+To learn more about succession,
+
+<br><br>
+
+<button onclick="window.location.href='https://news.uchicago.edu/explainer/what-is-ecological-succession';">Click Here!</button>
+
+<br><br>
+
+To find out more about your carbon savings, ask any Eco-Rep member about the Green Resident Program (GRP) Survey!
+
+</div>
+
+
+<py-script>
+import string
+import js
+from PIL import Image
+
+output = Element("output")
+output2 = Element("output2")
+output3 = Element("output3")
+output4 = Element("output4")
+
+post = js.localStorage.getItem("env")
+num = '%.3f'%(float(post))
+
+pyscript.write('output', num)
+
+
+bedrocking = "You are Bedrock! This means you are at the beginning of your journey, in succession bedrock is the very first stage to a beautiful forest!"
+
+pioneering = "You are in the Pioneer Stage! This means you are off to a great start and no sight of stopping your growth! Pioneer Species are organisms such as lichen and moss that grow on rocks and are foundational to the growth of a budding forest."
+
+interm = "You are in the Intermediate Stage! This means you have a solid foundation and are on your way to becoming a beautiful forest! In succession, intermediate species are the second generation of species. You can find tree species like the Eastern White Pine, Tulip-Poplar, and Red Maple (pictured in order from left to right)."
+
+ccing = "You are in the Climax Community Stage! This means you have successfully completed your beautiful forest, and implement sustainability regularly into your life! Climax communities are the last stage of succession and you could find tree species like Sugar Maple, Eastern Hemlock (state tree), and Flowering Dogwood (pictured in order from left to right)."
+
+
+if float(post) < 100:
+  document.getElementById("ig").src="bedrock.png"
+  pyscript.write('output2', "first")
+  pyscript.write('output3', "Bedrock")
+  pyscript.write('output4', bedrocking)
+elif float(post) < 200:
+  document.getElementById("ig").src="pioneer.png"
+  pyscript.write('output2', "second")
+  pyscript.write('output3', "Pioneer")
+  pyscript.write('output4', pioneering)
+elif float(post) < 300:
+  document.getElementById("ig").src="inter.png"
+  pyscript.write('output2', "third")
+  pyscript.write('output3', "Intermediate")
+  pyscript.write('output4', interm)
+elif float(post) < 400:
+  document.getElementById("ig").src="cc.png"
+  pyscript.write('output2', "fourth")
+  pyscript.write('output3', "Climax Community")
+  pyscript.write('output4', ccing)
+
+
+</py-script>
+
+<br><br>
+<div class="note" style="text-align: center;font-size:12px;">
+Design Attributions: <br>
+<a style="color:#b7e3a1;"href="https://www.flaticon.com/free-stickers/polar-bear" title="polar bear stickers">Polar bear stickers created by Surfsup.Vector - Flaticon</a> <br>
+<a style="color:#b7e3a1;"href="https://www.flaticon.com/free-stickers/laundry" title="laundry stickers">Laundry stickers created by Gohsantosadrive - Flaticon</a> <br>
+<a style="color:#b7e3a1;"href="https://www.flaticon.com/free-icons/light-switch" title="light switch icons">Light switch icons created by Ehtisham Abid - Flaticon</a> <br>
+<a style="color:#b7e3a1;"href="https://www.flaticon.com/free-icons/ecology-and-environment" title="ecology and environment icons">Ecology and environment icons created by Ehtisham Abid - Flaticon</a> <br>
+<a style="color:#b7e3a1;"href="https://www.flaticon.com/free-icons/charge" title="charge icons">Charge icons created by Smashicons - Flaticon</a> <br>
+<a style="color:#b7e3a1;"href="https://giphy.com/megantje" title="watering can gif">Watering Can gif created by Megan McNulty - GIPHY</a>
+</div>
+<br><br><br>
+
+</body>
+</html>

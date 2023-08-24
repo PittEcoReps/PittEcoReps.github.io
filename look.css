@@ -1,0 +1,151 @@
+body{
+  background-image: url("possible.png");
+  background-position: center center;
+  background-size: 100% 100%;
+  position: absolute;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 25;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+main{
+  position: relative;
+}
+section{
+  position: absolute;
+  top: 5rem;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  color: #15732f; /*white*/
+  text-align: center;
+}
+
+/*________________________Button Look____________________*/
+button, input{
+  background-color: inherit;
+  color: #A2D061; /*light green*/
+  margin: 0.5em;
+  font-weight: 300;
+  padding: 0.5em;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 1.10em;
+  border: 2px solid #A2D061; /*light green*/
+  border-radius: 0.2em;
+  transition: 0.3s all;
+}
+button:hover, input:hover{
+  background-color:#61bcd0; /*light blue*/
+  color: white;
+  transform: translate(0,1px);
+  cursor: pointer;
+}
+button:focus{
+  outline: 0;
+}
+
+button:active,
+.active {
+  transform: translate(0, 4px);
+}
+
+.pressed:active {
+  background-color: #A2D061; /*light green*/
+  color: white;
+  cursor: pointer;
+
+}
+/*________________Input, Form, and Heading_____________________*/
+
+input:focus{
+  outline: 0;
+  background-color: #A2D061; /*light green*/
+  color: black;
+}
+form {
+  padding-top: 30px;
+  text-align: center;
+  font-family: 'Candara', sans-serif;
+  color: #a9de5f; /*light sat green*/
+}
+
+h1 {
+  color: #a9de5f; /*light sat green*/
+  font-family: 'Gill Sans', sans-serif;
+}
+
+/*______________________Main text Look________________________*/
+
+div {
+  padding-top: 30px;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 1.5em;
+  color: #A2D061; /*light green*/
+}
+
+.description {
+  padding-top: 30px;
+  text-align: center;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 1.1em;
+  color: #A2D061; /*light green*/
+
+}
+
+.header {
+  text-align: center;
+  color: #15732f; /*white*/
+  font-size: 30px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.note {
+   font-family: 'Bodoni MT', serif;
+   font-size: 20px;
+}
+
+/*______________________________Navigation Look____________*/
+.topnav {
+  overflow: hidden
+  padding-top: 20px;
+}
+
+.topnav a {
+  float: right;
+  color: #A2D061; /*light green*/
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.topnav a:hover {
+  background-color:#A2D061; /*light green*/
+  color: white;
+  border: 1px solid #A2D061; /*light green*/
+  border-radius: 0.2em;
+  transition: 0.3s all;
+}
+
+.topnav a.active {
+  background-color: #61bcd0; /*light blue*/
+  color:#61bcd0; /*light blue*/
+}
+/*___________________Form Input Look__________________________*/
+
+input[type=radio] {
+  appearance: none;
+  padding: 10px;
+  border: 2px solid #A2D061; /*light green*/
+  vertical-align: middle;
+  /*border-radius:50%;*/
+}
+input[type=radio]:checked {
+  border: 2px solid #A2D061; /*light green*/
+  background-color: #A2D061; /*light green*/
+}
