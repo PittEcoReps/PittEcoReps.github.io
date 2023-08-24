@@ -3,6 +3,16 @@
 This is a written summary of the guide video. PLEASE WATCH THE GUIDE VIDEO TO UNDERSTAND HOW TO NAVIGATE
 WORKING WITH THE WEBSITE REGARDLESS OF YOUR EXPERIENCE WITH HTML, CSS, AND PYSCRIPT (python but a little different)!!
 
+_____________________________________________LINK TO VIDEOS____________________________________________
+
+https://www.youtube.com/playlist?list=PLFbAcF2GHqihrYZzX7n7b37emL8oNW35A
+
+This is the playlist with all the walkthroughs. DEFINITELY WATCH!!
+
+Watch the walkthrough Parts 1,2,and 3 first. 
+Then read this guide as it will solidify some of the concepts in this.
+Then watch the github tutorials. 
+
 ______________________________________________FILE NAMES______________________________________________
 
 1. First rule of thumb, DO NOT CHANGE ANY FILE NAMES!! File names are important for linking all the elements 
@@ -28,6 +38,10 @@ DO NOT CHANGE EXISTING VARIABLE NAMES!! This will cause some issues because thes
 in different places of the code and sometimes between linked pages. 
 
 DO NOT CHANGE IDS AND NAMES! THIS IS THE "id=" or "name=" things! ANYTHING WITHIN THOSE CARROTS SHOULD STAY THE SAME. 
+For example (but not limited to): 
+<input type="radio" id="yup" name="follow" required> 
+<div class="header">
+
 Usually, questions and answers appear as normal text (not glowing blue), which are easy to change without consequences, 
 however, ids and names create sets and link back to python code. 
 
@@ -153,7 +167,7 @@ Make sure it is initially public!!
 Add all the website's files into this repository. Go to settings. Look at the sidebar. Go to pages. Under Branch, change None
 to main and click Save. In a few moments, the website should pop up with the link:
 
-replaceexactlywiththeaccountusername.github.io  
+PittEcoReps.github.io  
 
 If you no longer want this site :'( : 
 
